@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess my shape</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div id="myCanvas"></div>
+    <script src="/static/script.js"></script>
+    <script>
+        function clearPaint() {
+            let savedData = new Image();
+            let canvas = document.getElementsByTagName('canvas')[0];
+            console.log(canvas.toDataURL("image/png").length)
+            $.ajax({
+                url: '/',
+                type: 'POST',
+                data: canvas.toDataURL("image/png"),
+                success: function (response) {
+                    // $('#main').text(response)
+                    console.log(response)
+                }
+            })
+            background(255);
+        }
+
+    </script>
+</body>
+
+</html>

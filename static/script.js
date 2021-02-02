@@ -21,6 +21,3 @@ function mouseDragged() {
   line(mouseX, mouseY, pmouseX, pmouseY);
 }
 
-function clearPaint() {
-  background(255);
-}
