@@ -12,22 +12,22 @@
 
 <body>
     <div id="myCanvas"></div>
+    <p>is it <span id="sketch-name"></span>?</p>
     <script src="/static/script.js"></script>
     <script>
         function clearPaint() {
             let savedData = new Image();
             let canvas = document.getElementsByTagName('canvas')[0];
-            console.log(canvas.toDataURL("image/png").length)
             $.ajax({
                 url: '/',
                 type: 'POST',
-                data: canvas.toDataURL("image/png"),
+                data: canvas.toDataURL("image/png").replace('data:image/png;base64,', ''),
                 success: function (response) {
-                    // $('#main').text(response)
+                    $("#sketch-name").text(response)
                     console.log(response)
                 }
             })
-            background(255);
+            background(0);
         }
 
     </script>

@@ -2,13 +2,13 @@ var radius;
 var c;
 
 function setup() {
-  var myCanvas = createCanvas(420, 420);
+  var myCanvas = createCanvas(300, 300);
   myCanvas.parent("myCanvas");
   createP();
   eraser = createButton("clear");
   eraser.mousePressed(clearPaint);
-  c = color(0);
-  background(255);
+  c = color(255);
+  background(0);
 }
 
 function draw() {
