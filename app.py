@@ -28,13 +28,8 @@ def predict_sketch(img):
 learner = load_posix_learner()
 classes = learner.dls.vocab
 
-@app.route('/', methods=['GET','POST'])
-def start():
-    return render_template("index.html")
-    
-
 # route for prediction
-@app.route('/game', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def predict():
     if (request.method == "POST"): 
         image_b64 = request.get_data()
@@ -42,9 +37,7 @@ def predict():
         image = Image.open(io.BytesIO(base64_decoded)).convert('L')
         image.thumbnail( [28,28],Image.ANTIALIAS )
         image_np = np.asarray(image)
-        # image =  Image.fromarray(small_image)
-        image.save('ss2.png')
         sketch_name, prob = predict_sketch(image_np)
         return sketch_name
-    return render_template("game.html")
+    return render_template("index.html")
 

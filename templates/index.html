@@ -3,20 +3,33 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
     <title>Guess my shape</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body id="start">
-    <div>
+
+    <div class="start">
         <img src="/static/logo.svg" alt="logo">
         <p>We will randomly choose a word, <br>
             try to draw it then our AI can guess it
         </p>
-        <a class="btn" href="/game">Start</a>
+        <button class="btn">Start</button>
     </div>
+
+    <div class="game">
+        <h2>The word is: "<span id="word">.</span>"</h2>
+        <img src="/static/logo.svg" alt="logo">
+        <div id="myCanvas"></div>
+        <p>AI : is it "<span id="sketch-name"></span>"?</p>
+    </div>
+
+    <script src="/static/classes.js"></script>
+    <script src="/static/script.js"></script>
+    
 </body>
 
 </html>

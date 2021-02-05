@@ -4,14 +4,9 @@ body {
     font-family: 'Montserrat', sans-serif
 }
 
-#myCanvas {
-    border: 1px solid red;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-}
 
-#start div {
+
+#start div.start {
     position: absolute;
     top: 40%;
     left: 50%;
@@ -19,18 +14,18 @@ body {
     text-align: center;
 }
 
-#start div img {
+#start div.start img {
     width: 350px;
     margin-bottom: 30px;
 }
 
-#start div p {
+#start div.start p {
     text-align: center;
     color: #2C3E50;
     font-size: 24px;
 }
 
-#start div .btn {
+#start div.start .btn {
     background-color: #F39C12;
     border: none;
     color: white;
@@ -41,4 +36,39 @@ body {
     font-size: 20px;
     text-align: center;
     cursor: pointer;
+}
+
+.game p{
+    text-align: center;
+    font-size: 20px;
+    display: none;
+}
+#sketch-name{
+    font-weight: bold;
+}
+#start div.game{
+    display: none;
+}
+
+#game div.start{
+    display: none;
+}
+
+div.game{
+    padding-top: 50px;
+}
+#game div.game img{
+    position: absolute;
+}
+
+#game div.game h2{
+    text-align: center;
+}
+
+
+#myCanvas {
+    border: 1px solid red;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
 }
