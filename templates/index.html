@@ -15,6 +15,7 @@
     <p>is it <span id="sketch-name"></span>?</p>
     <script src="/static/script.js"></script>
     <script>
+        var classes = JSON.parse(data);
         function clearPaint() {
             let savedData = new Image();
             let canvas = document.getElementsByTagName('canvas')[0];
