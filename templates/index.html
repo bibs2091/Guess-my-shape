@@ -3,35 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guess my shape</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/static/style.css">
+    <title>Guess my shape</title>
 </head>
 
-<body>
-    <div id="myCanvas"></div>
-    <p>is it <span id="sketch-name"></span>?</p>
-    <script src="/static/script.js"></script>
-    <script>
-        var classes = JSON.parse(data);
-        function clearPaint() {
-            let savedData = new Image();
-            let canvas = document.getElementsByTagName('canvas')[0];
-            $.ajax({
-                url: '/',
-                type: 'POST',
-                data: canvas.toDataURL("image/png").replace('data:image/png;base64,', ''),
-                success: function (response) {
-                    $("#sketch-name").text(response)
-                    console.log(response)
-                }
-            })
-            background(0);
-        }
-
-    </script>
+<body id="start">
+    <div>
+        <img src="/static/logo.svg" alt="logo">
+        <p>We will randomly choose a word, <br>
+            try to draw it then our AI can guess it
+        </p>
+        <a class="btn" href="/game">Start</a>
+    </div>
 </body>
 
 </html>

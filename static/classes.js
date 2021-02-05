@@ -1,4 +1,4 @@
-[
+var classes = [
     "The Eiffel Tower",
     "The Great Wall of China",
     "aircraft carrier",

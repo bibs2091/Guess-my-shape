@@ -1,6 +1,44 @@
-#myCanvas{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif
+}
+
+#myCanvas {
     border: 1px solid red;
     width: 300px;
     height: 300px;
     margin: 0 auto;
+}
+
+#start div {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#start div img {
+    width: 350px;
+    margin-bottom: 30px;
+}
+
+#start div p {
+    text-align: center;
+    color: #2C3E50;
+    font-size: 24px;
+}
+
+#start div .btn {
+    background-color: #F39C12;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
 }
