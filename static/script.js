@@ -40,8 +40,9 @@ function game() {
             $(".game p #ai").text("AI : I found it !!!, it's ")
             $("#sketch-name").text(response.answers[count])
             foundIt = true
-            // nextWord()
             clearInterval(handle)
+
+            
           } else if (!foundIt && StartedDrawing) {
             $('#sketch-name').text(response.answers[count])
           }

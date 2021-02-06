@@ -59,6 +59,7 @@ div.game{
 }
 #game div.game img{
     position: absolute;
+    cursor: pointer;
 }
 
 #game div.game h2{

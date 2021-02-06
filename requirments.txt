@@ -1,0 +1,7 @@
+numpy
+flask
+flask_cors
+fastai
+io
+base64
+pathlib
