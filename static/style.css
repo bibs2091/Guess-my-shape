@@ -67,8 +67,20 @@ div.game{
 
 
 #myCanvas {
-    border: 1px solid red;
+    border: 1px solid #f1c40f;
     width: 300px;
     height: 300px;
     margin: 0 auto;
+    border-radius: 8px;
+    overflow:hidden;
+}
+
+#next-button{
+    width: 26px;
+    margin-left: 10px;
+    margin-top: -3px;
+    background: #f1c40f;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
 }

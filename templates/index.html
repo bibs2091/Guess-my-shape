@@ -21,10 +21,14 @@
     </div>
 
     <div class="game">
-        <h2>The word is: "<span id="word">.</span>"</h2>
-        <img src="/static/logo.svg" alt="logo">
+        
+        <h2>
+            The word is: "<span id="word">.</span>"
+            <img src="/static/next.svg" alt="next word" id="next-button"/>
+        </h2>
+        <img src="/static/logo.svg" alt="logo" id="logo">
         <div id="myCanvas"></div>
-        <p>AI : is it "<span id="sketch-name"></span>"?</p>
+        <p><span id="ai">AI : is it </span><span id="sketch-name"></span></p>
     </div>
 
     <script src="/static/classes.js"></script>
