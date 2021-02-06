@@ -1,6 +1,8 @@
 var radius;
 var c;
-var StartedDraing = false;
+var StartedDrawing = false;
+var timer = 0
+var foundIt = false
 
 function setup() {
   var myCanvas = createCanvas(300, 300);
@@ -18,14 +20,13 @@ function mouseDragged() {
   stroke(c)
   strokeWeight(10);
   line(mouseX, mouseY, pmouseX, pmouseY);
-  StartedDraing = true
+  StartedDrawing = true
 }
 
 function game() {
   var savedData = new Image();
   var canvas = document.getElementsByTagName('canvas')[0];
-  var timer = 0
-  var foundIt = false
+
   var intervalId = window.setInterval(function () {
     $.ajax({
       url: '/',
@@ -34,29 +35,26 @@ function game() {
       success: function (response) {
         $(".game p").show()
         var count = 0
-        var handle = setInterval( function() {
-           if (response.answers[count] == word.textContent && StartedDraing == true){
-              $(".game p #ai").text("AI : I found it !!!, it's ")
-              $("#sketch-name").text(response.answers[count])
-              foundIt = true
-              console.log("right answer")
-              nextWord()
-              clearInterval(handle)
-            }
-            else if(!foundIt && StartedDraing){
-                console.log("wrong :() answer")
-                $('#sketch-name').text(response.answers[count])
-            }
+        var handle = setInterval(function () {
+          if (response.answers[count] == word.textContent && StartedDrawing == true) {
+            $(".game p #ai").text("AI : I found it !!!, it's ")
+            $("#sketch-name").text(response.answers[count])
+            foundIt = true
+            // nextWord()
+            clearInterval(handle)
+          } else if (!foundIt && StartedDrawing) {
+            $('#sketch-name').text(response.answers[count])
+          }
           count++;
-          if (count>=2) clearInterval(handle);
+          if (count >= 2) clearInterval(handle);
 
-        }, 2500 );
+        }, 2500);
 
-        
+
       }
     })
 
-    
+
 
     timer += 1;
     if (timer == 4) {
@@ -65,16 +63,16 @@ function game() {
   }, 5000);
 }
 
-function nextWord(){
+function nextWord() {
   word = classes[Math.floor(Math.random() * classes.length)];
   $("#word").text(word);
   $(".game p").hide()
   $(".game p #ai").text("AI : is it ")
   $("#sketch-name").text("")
   background(0)
-  timer = 0
   foundIt = false
-  StartedDraing = false
+  timer = 0
+  StartedDrawing = false
 }
 
 $(document).ready(function () {
