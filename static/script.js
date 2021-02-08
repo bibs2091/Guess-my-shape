@@ -4,6 +4,7 @@ var StartedDrawing = false;
 var timer = 0
 var foundIt = false
 var word = ""
+var countdownInterval 
 
 function setup() {
   var myCanvas = createCanvas(300, 300);
@@ -27,7 +28,7 @@ function mouseDragged() {
 function game() {
   var savedData = new Image();
   var canvas = document.getElementsByTagName('canvas')[0];
-    $("#word").text(word);
+  $("#word").text(word);
 
   var intervalId = window.setInterval(function () {
     $.ajax({
@@ -39,14 +40,13 @@ function game() {
         var count = 0
         var handle = setInterval(function () {
 
-          console.log("the answer: " + response.answers[count] + " actual word: " + word + " found-it:" + str(foundIt) + " equal? " + str(response.answers[count] == word) )
 
           if (response.answers[count] == word && StartedDrawing == true) {
             $(".game p #ai").text("AI : I found it !!!, it's ")
             $("#sketch-name").text(response.answers[count])
             foundIt = true
             clearInterval(handle)
-            
+
           } else if (!foundIt && StartedDrawing) {
             $('#sketch-name').text(response.answers[count])
           }
@@ -75,6 +75,8 @@ function nextWord() {
   $(".game p #ai").text("AI : is it ")
   $("#sketch-name").text("")
   background(0)
+  clearInterval(countdownInterval);
+  myCountdown()
   foundIt = false
   timer = 0
   StartedDrawing = false
@@ -107,7 +109,20 @@ $(document).ready(function () {
       width: '211px',
       height: '48px'
     });
+    myCountdown()
     game()
   });
 
 });
+
+function myCountdown() {
+  var counter = 20;
+  countdownInterval = setInterval(function () {
+    counter--;
+    $("h3.time span").text(counter)
+    if (counter == 0) {
+      // Display a login box
+      clearInterval(countdownInterval);
+    }
+  }, 1000);
+}
