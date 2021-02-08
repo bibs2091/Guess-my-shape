@@ -1,10 +1,8 @@
 numpy
-flask
-flask_cors
+https://download.pytorch.org/whl/cpu/torch-1.7.1%2Bcpu-cp36-cp36m-linux_x86_64.whl
+https://download.pytorch.org/whl/cpu/torchvision-0.8.2%2Bcpu-cp36-cp36m-linux_x86_64.whl
 fastai
-io
-base64
-https://download.pytorch.org/whl/cpu/torch-1.6.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
-https://download.pytorch.org/whl/cpu/torchvision-0.7.0%2Bcpu-cp36-cp36m-linux_x86_64.whl
 gunicorn
 pathlib
+flask
+flask_cors == 3.0.7
