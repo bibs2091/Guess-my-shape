@@ -3,6 +3,7 @@ var c;
 var StartedDrawing = false;
 var timer = 0
 var foundIt = false
+var word = ""
 
 function setup() {
   var myCanvas = createCanvas(300, 300);
@@ -26,6 +27,7 @@ function mouseDragged() {
 function game() {
   var savedData = new Image();
   var canvas = document.getElementsByTagName('canvas')[0];
+    $("#word").text(word);
 
   var intervalId = window.setInterval(function () {
     $.ajax({
@@ -36,12 +38,14 @@ function game() {
         $(".game p").show()
         var count = 0
         var handle = setInterval(function () {
-          if (response.answers[count] == word.textContent && StartedDrawing == true) {
+
+          console.log("the answer: " + response.answers[count] + " actual word: " + word + " found-it:" + str(foundIt) + " equal? " + str(response.answers[count] == word) )
+
+          if (response.answers[count] == word && StartedDrawing == true) {
             $(".game p #ai").text("AI : I found it !!!, it's ")
             $("#sketch-name").text(response.answers[count])
             foundIt = true
             clearInterval(handle)
-
             
           } else if (!foundIt && StartedDrawing) {
             $('#sketch-name').text(response.answers[count])
@@ -77,15 +81,13 @@ function nextWord() {
 }
 
 $(document).ready(function () {
-  var word
+  word = classes[Math.floor(Math.random() * classes.length)];
 
   $("#next-button").click(function () {
     nextWord()
   })
 
   $("#start div.start .btn").click(function () {
-    word = classes[Math.floor(Math.random() * classes.length)];
-    $("#word").text(word);
     let start_logo = $("#start div.start img")
     let x = start_logo.offset().left;
     let y = start_logo.offset().top;
