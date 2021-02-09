@@ -5,6 +5,7 @@ var timer = 0
 var foundIt = false
 var word = ""
 var countdownInterval 
+var sound = new Audio('./static/tada.mp3');
 
 function setup() {
   var myCanvas = createCanvas(300, 300);
@@ -45,6 +46,7 @@ function game() {
             $(".game p #ai").text("AI : I found it !!!, it's ")
             $("#sketch-name").text(response.answers[count])
             foundIt = true
+            sound.play();
             clearInterval(handle)
 
           } else if (!foundIt && StartedDrawing) {
