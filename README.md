@@ -8,7 +8,7 @@ To run the project:
 - install requirements:
 
    ```
-  $pip install -r model/requirements.txt 
+  $pip install -r requirements.txt 
   ```
   
 - run the flask server:
